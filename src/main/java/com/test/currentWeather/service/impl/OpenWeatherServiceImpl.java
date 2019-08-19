@@ -139,9 +139,9 @@ public class OpenWeatherServiceImpl implements WeatherService {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-
+			
 		}
-
+		
 		LinkedHashMap<Long, WeatherCityInfo> codeMapper = new LinkedHashMap<>();
 		try {
 			JSONArray list = JSONArray.parseArray(builder.toString());

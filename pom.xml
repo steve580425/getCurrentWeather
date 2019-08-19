@@ -110,7 +110,7 @@
 					<programs>
 						<program>
 							<name>startup</name>
-							<mainClass>com.test.pdf2json.Pdf2jsonApplication</mainClass>
+							<mainClass>com.test.currentWeather.CurrentWeatherApplication</mainClass>
 							<jvmSettings>
 								<extraArguments>
 									<extraArgument>-Xmx256m</extraArgument>
