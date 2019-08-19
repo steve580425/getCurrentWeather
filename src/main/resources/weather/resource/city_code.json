@@ -1,0 +1,31 @@
+[
+	{
+    	"id": 6160752,
+    	"name": "Sydney",
+    	"country": "CA",
+    	"coord": {
+      		"lon": -60.181751,
+      		"lat": 46.150139
+    	}
+	},
+	
+	{
+   		"id": 2642800,
+    	"name": "Melbourne",
+    	"country": "GB",
+    	"coord": {
+      		"lon": -0.85925,
+      	"lat": 53.88755
+    	}
+  	},
+  	
+  	{
+    	"id": 7839791,
+    	"name": "Wollongong",
+    	"country": "AU",
+    	"coord": {
+      		"lon": 150.850616,
+      		"lat": -34.342369
+    	}
+  	}
+]

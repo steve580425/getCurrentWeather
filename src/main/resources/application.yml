@@ -1,0 +1,43 @@
+server:
+  servlet:
+    contextPath: /
+  compression:
+    enabled: false
+  tomcat:
+    uriEncoding: ${spring.banner.charset}
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: pdf2json
+  main:
+    bannerMode: 'OFF'
+    allowBeanDefinitionOverriding: true
+  banner:
+    charset: UTF-8
+  jackson:
+    timeZone: Asia/Shanghai
+  http:
+    encoding:
+      force: true
+      enabled: true
+      charset: ${spring.banner.charset}
+  messages:
+    basename: common/message
+    cacheDuration: -1
+    encoding: ${spring.banner.charset}
+  aop:
+    auto: true
+  resources:
+    addMappings: false
+  servlet:
+    multipart:
+      enabled: true
+  autoconfigure:
+    exclude:
+      - com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+
+     
+logging:
+  config: classpath:logback-boot.xml

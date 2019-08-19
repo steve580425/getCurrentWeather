@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} |- %-5level [%t] %c -| %m%n" />
+	<property name="CHARSET" value="UTF-8" />
+	<property name="TEST_FILE_PATH" value="../logs" />
+	<property name="TEST_FILE_NAME" value="pdf2json-info" />
+	<property name="PROD_FILE_PATH" value="../logs" />
+	<property name="PROD_FILE_NAME" value="pdf2json-warn" />
+
+	<springProfile name="local">
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>${PATTERN}</pattern>
+				<charset>${CHARSET}</charset>
+			</encoder>
+		</appender>
+		<logger name="com.light.springboot" level="debug" />
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+
+	<springProfile name="dev">
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>${PATTERN}</pattern>
+				<charset>${CHARSET}</charset>
+			</encoder>
+		</appender>
+		<logger name="com.light.springboot" level="debug" />
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+
+	<springProfile name="test">
+		<appender name="TEST-FILE"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${TEST_FILE_PATH}/${TEST_FILE_NAME}.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${TEST_FILE_PATH}/${TEST_FILE_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+				<MaxHistory>90</MaxHistory>
+			</rollingPolicy>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>${PATTERN}</pattern>
+			</layout>
+		</appender>
+		<root level="info">
+			<appender-ref ref="TEST-FILE" />
+		</root>
+	</springProfile>
+
+	<springProfile name="prod">
+		<appender name="PROD_FILE"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${PROD_FILE_PATH}/${PROD_FILE_NAME}.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${PROD_FILE_PATH}/${PROD_FILE_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+				<MaxHistory>180</MaxHistory>
+			</rollingPolicy>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>${PATTERN}</pattern>
+			</layout>
+		</appender>
+		<root level="warn">
+			<appender-ref ref="PROD_FILE" />
+		</root>
+	</springProfile>
+
+</configuration>
